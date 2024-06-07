@@ -7,7 +7,10 @@ exports.homepage = async (req, res) => {
     description: "Easy as NodeJS!",
   };
 
-  res.render("index", locals);
+  res.render("index", {
+    locals,
+    layout: "../views/layouts/front-page",
+  });
 };
 
 // get /
@@ -19,5 +22,5 @@ exports.about = async (req, res) => {
     description: "about Node Note",
   };
 
-  res.render("index", locals);
+  res.render("about", locals);
 };
