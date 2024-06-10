@@ -13,10 +13,10 @@ html, body {
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: white;
     font-weight: 300;
     font-size: 1.2rem;
-    color: white;
-    background-color: var(--background-color);
 }
     
 h1,h2,h3,h4,h5,h6 {
@@ -68,6 +68,12 @@ h1,h2,h3,h4,h5,h6 {
     --bs-btn-disabled-border-color: var(--primary-color);
   }
 
+  .pagination {
+    --bs-pagination-color: var(--bs-primary-rgb);
+    --bs-pagination-active-bg: var(--bs-primary-rgb);
+    --bs-pagination-active-border-color: var(--bs-primary-rgb);
+  }
+
 .home {
     min-height: 100vh; /* Ensure the .home div fills the entire viewport */
     display: flex;
@@ -75,8 +81,18 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
-.middle-main {
-  height: 100vh;
+.home-title::before {
+  content: url('../img/stars.svg');
+  position: absolute;
+  left: -50px;
+  top: -30px;
+}
+
+.home-title::after {
+  content: url('../img/stars.svg');
+  position: absolute;
+  right: -50px;
+  bottom: -30px;
 }
 
 footer {
