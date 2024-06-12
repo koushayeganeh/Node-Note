@@ -12,7 +12,7 @@ html, body {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Overpass", sans-serif;
     background-color: var(--background-color);
     color: white;
     font-weight: 300;
@@ -20,8 +20,8 @@ body {
 }
     
 h1,h2,h3,h4,h5,h6 {
-        font-family: 'Covered By Your Grace', cursive;
-        font-weight: 800;
+   font-family: "Overpass", sans-serif;
+   font-weight: 900;
 }
 
 .container-fluid-custom {
@@ -81,7 +81,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
-.home-title::before {
+/* .home-title::before {
   content: url('../img/stars.svg');
   position: absolute;
   left: -50px;
@@ -93,7 +93,7 @@ h1,h2,h3,h4,h5,h6 {
   position: absolute;
   right: -50px;
   bottom: -30px;
-}
+} */
 
 footer {
   background-color: white;
