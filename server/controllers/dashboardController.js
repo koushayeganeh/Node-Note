@@ -20,7 +20,7 @@ exports.dashboard = async (req, res) => {
     const notes = await Note.aggregate([
       {
         $sort: {
-          updatedAt: -1,
+          createdAt: -1,
         },
       },
       { $match: { user: objectId } },
@@ -100,6 +100,28 @@ exports.dashboardUpdateNote = async (req, res) => {
 exports.dashboardDeleteNote = async (req, res) => {
   try {
     await Note.deleteOne({ _id: req.params.id }).where({ user: req.user.id });
+    res.redirect("/dashboard");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// GET /
+// dashboardAddNote
+
+exports.dashboardAddNote = async (req, res) => {
+  res.render("dashboard/add-note", {
+    layout: "../views/layouts/dashboard",
+  });
+};
+
+// Post /
+// dashboardAddNoteSubmit
+
+exports.dashboardAddNoteSubmit = async (req, res) => {
+  try {
+    req.body.user = req.user.id;
+    await Note.create(req.body);
     res.redirect("/dashboard");
   } catch (error) {
     console.log(error);
