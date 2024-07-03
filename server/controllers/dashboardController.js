@@ -49,3 +49,47 @@ exports.dashboard = async (req, res) => {
     console.log(error);
   }
 };
+
+// get /
+// dashboardViewNote
+
+exports.dashboardViewNote = async (req, res) => {
+  try {
+    const note = await Note.findById({ _id: req.params.id })
+      .where({
+        user: req.user.id,
+      })
+      .lean();
+
+    const locals = {
+      title: "Dashboard" + " | " + note.title,
+      description: "This is a Private Note!",
+    };
+    res.render("dashboard/view-notes", {
+      locals,
+      note,
+      noteId: req.params.id,
+      layout: "../views/layouts/dashboard",
+    });
+  } catch (error) {
+    res.send(
+      "Eaither you don't have access to this note or this note just does not exist."
+    );
+    console.log(error);
+  }
+};
+
+// PUT /
+// dashboardUpdateNote
+
+exports.dashboardUpdateNote = async (req, res) => {
+  try {
+    await Note.findOneAndUpdate(
+      { _id: req.params.id },
+      { title: req.body.title, body: req.body.body }
+    ).where({ user: req.user.id });
+    res.redirect("/dashboard");
+  } catch (error) {
+    console.log(error);
+  }
+};
