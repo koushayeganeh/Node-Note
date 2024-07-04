@@ -1,18 +1,18 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="/">Node Note</a>
+      <a class="navbar-brand fw-bold" href="/dashboard">Node Note</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <form class="nav col-12 col-md-auto flex-fill mb-2 mx-4 justify-content-center mb-md-0" role="search" methode="POST" action="/dashboard/search">
-            <input type="search" name="searchTerm" class="form-control boarder-primery" placeholder="Search..." aria-label="Search">
+        <form class="nav col-12 col-md-auto flex-fill mb-2 justify-content-center mb-md-0" role="search" method="POST" action="/dashboard/search">
+          <input type="search" name="searchTerm" class="form-control border-primary" placeholder="Search..." aria-label="Search">
         </form>
 
-        <div class="d-flex" role="search">
-          <a href="/logout" class="btn btn-outline-success" type="submit">Log Out</a>
+        <div class="col-md-3 text-end">
+          <a href="/logout" type="button" class="btn btn-outline-primary">Logout</a>
         </div>
 
       </div>

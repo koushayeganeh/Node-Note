@@ -20,8 +20,7 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI,
     }),
-    cookie: { maxAge: 3600000 }, // 1 hour
-    // cookie: { maxAge: 300 }, // 1 hour
+    // cookie: { maxAge: 3600000 },
   })
 );
 
